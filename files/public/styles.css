@@ -503,7 +503,7 @@ div.signin > div:nth-child(3) > *:hover {
   font-size: 18px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
   .hero-section {
     flex-direction: column;
