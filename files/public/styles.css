@@ -188,7 +188,6 @@ nav button:hover {
 
 .hero-section div:first-child {
   padding-top: 10%;
-  border: 1px solid #638AD6;
   flex: 1;
 }
 
@@ -197,7 +196,7 @@ nav button:hover {
   flex: 1;
   display: flex;
   justify-content: center;
-  border: 1px solid #638AD6;
+  
 }
 
 .hero-section div:nth-child(2) > img {
