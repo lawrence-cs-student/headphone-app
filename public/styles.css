@@ -573,8 +573,8 @@ div.signin > div:nth-child(3) > *:hover {
   }
 
   .hero-section div:nth-child(2) > img {
-    max-width: 60%;
-    max-height: 40%;
+    max-width: 70%;
+    max-height: 60%;
   }
 
   .hero-section h1 {
