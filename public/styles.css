@@ -4,7 +4,43 @@
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+/* Animation */
+
+
+@keyframes slideInLeft {
+  0%, 50% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+   100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0%, 50% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+   100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 
 body {
   box-sizing: border-box;
@@ -29,7 +65,6 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .nav-hero::before {
@@ -71,31 +106,34 @@ body {
 
 /* Navbar Section */
 
-.cover > div:first-child > div:first-child {
-  max-width: 100%;
-}
-
 
 nav {
-  display: flex;
-  align-items: center;
   margin-top: 2%;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
   gap: 5%;
-  max-width: 100%;
-  padding-left: 10%;
 }
 
 nav label {
-  display: inline-block;
   color: white;
   font-weight: bold ;
-  font-size: 35px;
-  position: relative;
+  font-size: 1em;
+}
+
+nav ul {
+  display: flex;
+  gap: 7px;
+  width: auto;
 }
 
 a {
   color: white;
   text-decoration: none;
+  width: auto;
+  height: 50%;
+  
 }
 
 a:hover {
@@ -104,12 +142,13 @@ a:hover {
 
 
 nav li {
-  font-size: 160%;
+  font-size: 0.8em;
   color: white;
   list-style: none;
   opacity: 0.85;
   transition: transform 0.3s ease-out;
   cursor: pointer;
+  display: inline-block;
 }
 
 nav li:hover {
@@ -119,18 +158,16 @@ nav li:hover {
 
 nav button {
   padding: 0.5%;
-  height: 45px;
-  width: 160%;
+  height: 100%;
+  width: 50px;
   background-color: #746AE9; 
   color: #ffffff;
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 80%;
   border-radius: 12px;
   border: none;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
-  position: relative;
-  left: 90%;
 }
 
 nav button:hover {
@@ -139,70 +176,46 @@ nav button:hover {
   transform: translateY(-3px)
 }
 
-.mobile-menu {
-  display: none;
-  padding: 0.5%;
-  height: 45px;
-  width: 2%;
-  background-color: #746AE9;
-  color: #ffffff;
-  font-weight: 900;
-  font-size: 1.2rem;
-  border-radius: 12px;
-  border: none;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-}
-
 
 
 /* Hero Section */
 
 
-@keyframes slideInLeft {
-  0%, 50% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-   100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  0%, 50% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-   100% {
-    transform: translateX(0);
-  }
-}
 
 .hero-section {
-  height: 95vh;
+  height: auto;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-self: center;
 }
 
 
 .hero-section h1 {
+  width: 100%;
   color: white;
-  font-size: 60px;
+  font-size: 20px;
   margin-bottom: 5%;
   animation: slideInLeft 0.8s linear;
 }
 
 .hero-section p {
+  width: 100%;
   color: white;
-  font-size: 25px;
-  text-align: justify;
+  font-size: 14px;
+  text-align: left;
   animation: slideInLeft 0.8s linear;
 }
 
 .hero-section div:first-child {
+  display: flex;
+  flex-basis: 40%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section div:nth-child(2) {
   box-sizing: border-box;
   padding: 10%;
   display: flex;
@@ -211,19 +224,11 @@ nav button:hover {
   flex-basis: 60%;
 }
 
-.hero-section div:nth-child(2) {
-  display: flex;
-  flex-basis: 40%;
-  justify-content: center;
-  align-items: center;
-}
 
-.hero-section div:nth-child(2) > img {
+.hero-section div:first-child > img {
   max-width: 80%;
-  max-height: 60%;
+  max-height: 50%;
   animation: slideInRight 1s linear;
-  position: relative;
-  bottom: 5%;
 }
 
 /* Features Section */
@@ -232,10 +237,9 @@ nav button:hover {
   display: flex;
   background-color: #CECAE4;
   height: auto;
-  padding: 10%;
-  box-sizing: border-box;
-  gap: 4%;
-  width: 100%;
+  padding: 10% 5%;
+  gap: 2%;
+  flex-direction: column;
 }
 
 .feature {
@@ -249,7 +253,7 @@ nav button:hover {
 }
 
 #features h1 {
-  font-size: 40px;
+  font-size: 1em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -257,7 +261,7 @@ nav button:hover {
 }
 
 #features p {
-  font-size: 20px;
+  font-size: 0.8em;
   text-align: center;
   line-height: 1.5; 
   max-height: 4.5em; 
@@ -272,32 +276,27 @@ nav button:hover {
   animation: bounce 3.5s infinite alternate;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
+
 
 /* Top Products Section */
 
 #top-products {
   display: flex;
-  gap: 5%;
-  width: 100%;
-  justify-content: center;
-  padding: 15% 0px;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  gap: 40px;
+  padding: 50px 0;
 }
 
 #top-products h1 {
   color: white;
-  
+  font-size: 14px;
 }
 
 #top-products p {
   color: white;
+  font-size: 12px;
 }
 
 .card {
@@ -307,22 +306,19 @@ nav button:hover {
   backdrop-filter: blur(2px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 15%;
+  width: 50%;
   padding: 2%;
   border-radius: 25px;
   transition: transform 0.2s ease-in-out;
+  height: auto;
+  
 }
 
 .card img {
-  height: 100%;
+  height: 80%;
   width: 90%;
 }
 
-.card > div {
-  height: 100%;
-  width: 90%;
-}
 
 .card:hover {
   transform: scale(1.1);
@@ -330,27 +326,15 @@ nav button:hover {
   box-shadow: 0px 10px 6px rgba(255, 255, 255, 0.1);
 }
 
-#top-products .card:nth-child(3) img {
-  width: 100%;
-  height: 70%;
-}
-
-#top-products .card:nth-child(2) img {
-  width: 130%;
-  height: 100%;
-}
 
 #top-products .card:nth-child(2) div {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#top-products .card:nth-child(3) div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 /* Footer Section */
 
@@ -358,57 +342,56 @@ nav button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 40px;
+  padding: 20px;
 }
 
 #footer > p {
   color: white;
-  font-size: 30px;
+  font-size: 1em;
 }
 
 /* Login Page */
 
-
 .login {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 100vh;
+  height: auto;
 }
 
 .signin {
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
 }
-
-
 
 form {
   margin-top: 3%;
-  height: 30%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   gap: 4%;
-  width: 50%;
+  width: 100%;
   align-items: center;
 }
 
 form > button {
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: #110B1D;
   border: none;
-  width: 20%;
-  height: 40px;
+  width: 25%;
+  height: 30%;
   border-radius: 25px;
   transition: transform 0.2s ease-in-out;
   color: white;
   margin-top: 3%;
   font-weight: bolder;
-  font-size: 1.3rem;
 }
 
 form > button:hover {
@@ -419,10 +402,11 @@ form input {
   background-color: #A7A7B6;
   border: none;
   border-radius: 25px;
-  height: 10%;
-  width: 50% ;
+  height: 22%;
+  width: 80% ;
   padding: 2% 3%;
   color: #110B1D;
+  font-size: 0.8em;
 }
 
 input::placeholder {
@@ -434,11 +418,33 @@ input::placeholder {
 .signin h1 {
   margin-bottom: 1.5%;
   font-weight: bolder;
+  font-size: 1.8em;
 }
 
+.signin > div:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  width: 80%;
+  margin: 1.5% 0px;
+}
+
+div.signin > div:nth-child(3) > * {
+  transition: transform 0.2s ease-out;
+}
+
+div.signin > div:nth-child(3) > *:hover {
+  transform: translateY(-2px);
+}
+
+.signin svg {
+  width: 25px;
+  height: 25px;
+}
 .google {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: #E23636;
   border-radius: 100%;
   display: flex;
@@ -447,8 +453,8 @@ input::placeholder {
 }
 
 .twitter {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
   background-color: #638AD6;
   display: flex;
@@ -458,8 +464,8 @@ input::placeholder {
 }
 
 .facebook {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
   background-color: #0F53BB;
   display: flex;
@@ -468,36 +474,19 @@ input::placeholder {
 }
 
 
-.signin > div:nth-child(3) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3%;
-  width: 20%;
-  margin: 1.5% 0px;
-
-}
-
-div.signin > div:nth-child(3) > * {
-  transition: transform 0.2s ease-out;
-}
- 
-div.signin > div:nth-child(3) > *:hover {
-  transform: translateY(-2px);
-}
+/* Signup Section */
 
 .signup {
   --bg-image: url("https://images.unsplash.com/photo-1626141138092-a20c8debe88b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
   --bg-image-opacity: 0.1;
-
   background-color: #110B1D;
-  height: 100vh;
-  width: 40%;
+  height: 60vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3%;
+  gap: 2%;
   position: relative;
   isolation: isolate;
 }
@@ -514,210 +503,384 @@ div.signin > div:nth-child(3) > *:hover {
 
 }
 
-.signup * {
-  position: relative;
-  color: white;
-  bottom: 10%;
+.signup > h1 {
+  font-size: 1.5em;
+  color: #ffffff;
 }
 
-.signup button {
-  font-size: 1.5rem;
+.signup > p {
+  font-size: 1em;
+  color: #ffffff;
+}
+
+.signup > button {
+  width: 25%;
+  height: 10%; 
+  font-size: 1.2em;
+  border-radius: 20px;
   background-color: #746AE9;
   border: none;
-  width: 150px;
-  height: 40px;
-  border-radius: 25px;
-  animation: transform 1s ease-in-out;
   font-weight: bolder;
-  transition: transform 0.3s ease-in-out;
+  color: #ffffff;
 }
 
-.signup button:hover {
-  transform: translateY(-4px);
-}
-
-.signup h1 {
-  font-size: 40px;
-  font-weight: bolder;
-}
-
-.signup p {
-  opacity: 0.85;
-  font-size: 18px;
-}
-
-@media screen and (max-width: 1024px) {
-
-
-  nav {
-    padding-left: 20%;
-  }
-  .cover {
-    width: 100%;
+@media (min-width: 576px) and (max-width: 767px) {
+  
+  nav button {
+    width: 65px;
   }
 
-  .hero-section {
-    flex-direction: column;
-    align-items: center;
-    height: fit-content;
+  a {
+    height: 65%;
   }
-
-  .hero-section div:first-child {
-    order: 2;
-    width: 90%;
-  }
-
-  .hero-section div:nth-child(2) {
-    order: 1;
-    align-items: center;
-    width: 90%;
-  }
-
-  .hero-section div:nth-child(2) > img {
-    max-width: 80%;
-    max-height: 60%;
+  .hero-section div:first-child > img {
+    max-width: 60%;
+    max-height: 30%;
   }
 
   .hero-section h1 {
-    color: white;
-    font-size: 2rem;
-    margin-bottom: 5%;
-    padding: 2% 4%;
+    font-size: 1.2em;
   }
-
+  
   .hero-section p {
-    color: white;
-    font-size: 1rem;
-    padding: 2% 4%;
+    font-size: 1.2em;
   }
 
-  #features {
-    flex-direction: column;
-    height: auto;
-    gap: 4%;
+  nav label {
+    font-size: 1.2em;
+  }
+  nav li {
+    font-size: 1em;
   }
 
-   
-  #top-products {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    padding: 10% 0px;
-    gap: 30px;
-    width: 100%;
-  }
-
-  #features h1 {
-    font-size: 1.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    
-  }
-  
-  #features p {
-    font-size: 1.5rem;
-    text-align: center;
-    line-height: 1.5; 
-    max-height: 4.5em; 
-  
-  }
-
-
-  .card {
-    width: 40%;
-    height: 320px;
-    padding: 5%;
-  } 
-
-  .card > h1 {
-    font-size: 20px;
-  }
-
-  #footer > p {
-    font-size: 15px;
-  }
-
-
-  li {
-    color: #ffffff;
-  }
-
-
-  /* Signin Section */
-  .signin button {
-    height: 70px;
-    width: 140px;
-    font-size: 2rem;
-  }
-
-  form {
-    width: 700px;
-    height: 300px;
-  }
-
-  form input {
-    width: 70%;
-    height: 12%;
-    font-size: 1.5rem;
-  }
-
-  form input::placeholder {
-    font-size: 1.5rem;
-  }
-
-  .signin > h1 {
-    font-size: 3rem;
-    font-weight: 900;
-  }
-
-  .signin {
-    width: 100%;
-  }
-
-  .signin > p {
-    font-size: 1.5rem;
-  }
-
-
-  .login {
-    flex-direction: column;
-  }
-
-  .facebook {
-    width: 60px;
-    height: 60px;
-  }
-
-  .google {
-    width: 60px;
-    height: 60px;
-  }
-
-  .twitter {
-    width: 60px;
-    height: 60px;
-  }
-
-  /* Signup Section */
-
-  .signup {
-    width: 100%;
-  }
-
-  .signup > h1 {
-    font-size: 3rem;
-  }
-
-  .signup > p {
-    font-size: 2rem;
+  form > button {
+    width: 20%;
+    height: 25%;
   }
 
   .signup > button {
-    width: 120px;
-    height: 50px; 
-    font-size: 1.5rem;
+    width: 20%;
+    height: 8%;
+  }
+
+  #features h1 {
+    font-size: 1.5em;
+  }
+
+  #features p {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  a {
+    height: 70%;
+  }
+
+  nav button {
+    font-size: 1em;
+    width: 65px;
+  }
+  nav label {
+    font-size: 1.5em;
+  }
+
+  nav li {
+    font-size: 1.5em;
+  }
+  .hero-section div:first-child > img {
+    max-width: 45%;
+    max-height: 35%;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5em;
+  }
+  
+  .hero-section p {
+    font-size: 1.5em;
+  }
+
+  #features h1 {
+    font-size: 1.5em;
+  }
+
+  #features p {
+    font-size: 1em;
+  }
+
+
+  form > button {
+    width: 15%;
+    max-height: 20%;
+  }
+
+  .signup > button {
+    width: 15%;
+    height: 5%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+  nav {
+    justify-content: flex-start;
+    padding-left: 10%;
+  }
+  nav label {
+    font-size: 2em;
+  }
+  
+  nav button {
+    width: 70px;
+  }
+  
+  a {
+    height: 75%;
+  }
+  
+  a:hover {
+    color: #746AE9;
+  }
+  
+  
+  nav li {
+    font-size: 1.5em;
+    color: white;
+    list-style: none;
+    opacity: 0.85;
+    transition: transform 0.3s ease-out;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .hero-section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8em;
+  }
+  
+  .hero-section p {
+    font-size: 1.3em;
+  }
+
+  .hero-section div:nth-child(2) {
+    flex-basis: 55%;
+  }
+  
+  .hero-section div:first-child {
+    flex-basis: 45% ;
+    order: 1;
+    padding: 0;
+  }
+  
+  .hero-section div:first-child > img {
+    max-height: 80%;
+    max-width: 90%;
+  }
+
+  #features {
+    flex-direction: row;
+  }
+
+  #features h1 {
+    font-size: 1.5em;
+  }
+
+  #features p {
+    font-size: 1em;
+  }
+  .feature {
+    height: 100%;
+  }
+
+  #top-products {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .card {
+    width: 25%;
+  }
+
+  .login {
+    flex-direction: row;
+    height: 100vh;
+    padding: 0;
+  }
+
+  .signin {
+    height: 100%;
+    flex-basis: 60%;
+  }
+
+  .signup {
+    height: 100%;
+    flex-basis: 40%;
+  }
+
+  form input {
+    height: 15%;
+    width: 60%;
+  }
+
+  form > button {
+    height: 15%;
+    width: 15%;
+  }
+
+  .signup > button {
+    height: 6%;
+  }
+
+  .signup * {
+    position: relative;
+    bottom: 10%;
   }
 
 }
 
+ @media (min-width: 1200px) {
+
+  .nav-hero {
+    height: 100vh;
+  }
+
+  a {
+    height: 80%;
+    width: 100px;
+
+  }
+  nav {
+    box-sizing: border-box;
+    justify-content: flex-start;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  nav button {
+    align-self: baseline;
+    font-size: 1em;
+    width: 100%;
+  }
+
+  nav label {
+    font-size: 2em;
+  }
+  nav ul {
+    gap: 20px;
+  }
+  nav li {
+    font-size: 2em;
+  }
+  .hero-section {
+    display: flex;
+    flex-direction: row;
+    padding-top: 4%;
+  }
+  .hero-section h1 {
+    font-size: 2.3em;
+  }
+
+  .hero-section p {
+    font-size: 1.5em;
+  }
+  .hero-section div:nth-child(2) {
+    flex-basis: 55%;
+    padding: 2% 5% 2% 10%;
+  }
+  
+  .hero-section div:first-child {
+    flex-basis: 45% ;
+    order: 1;
+    padding: 0;
+  }
+
+  .hero-section div:first-child > img{
+    max-height: 65%;
+    max-width: 90%;
+    animation: bounce 3.5s infinite alternate;
+  }
+
+  #features {
+    flex-direction: row;
+  }
+
+  #features h1 {
+    font-size: 2em;
+  }
+
+  #features p {
+    font-size: 1.2em;
+  }
+
+  #top-products {
+    padding: 10%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #top-products .card {
+    width: 30%;
+    height: 350px;
+    padding: 20% 0;
+  }
+
+  #top-products .card  img {
+    width: 80%;
+    height: 80%;
+  }
+
+  #top-products .card div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #top-products .card h1 {
+    font-size: 1em;
+  }
+
+  #top-products .card p {
+    font-size: 1em;
+  }
+
+  .login {
+    flex-direction: row;
+    height: 100vh;
+    padding: 0;
+  }
+
+  .signin {
+    height: 100%;
+    flex-basis: 60%;
+  }
+
+  .signup {
+    height: 100%;
+    flex-basis: 40%
+  }
+
+  form input {
+    height: 15%;
+    width: 60%;
+  }
+
+  form > button {
+    height: 15%;
+    width: 15%
+  }
+
+  .signup > button {
+    height: 5%;
+    width: 18%;
+  }
+
+  .signup * {
+    position: relative;
+    bottom: 10%;
+  }
+ }
